@@ -5,58 +5,59 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-#TODO: need to check if we still need the Bootstrap header and footer. We might need to delete this stuff.
-#
+//TODO: need to check if we still need the Bootstrap header and footer. We might need to delete this stuff.
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <title>Register page!</title>
   </head>
+
   <h1>Register</h1>
   <hr>
-  <?php 
-  if(@$_GET['status']=="emailalredyexists"){
-  ?>
-  <div class="alert alert-danger">
-      Email already exists
-  </div>
-  <?php } ?>
-  <?php 
-  if(@$_GET['status']=="weakpassword"){
-  ?>
-  <div class="alert alert-danger">
+    <?php 
+    if(@$_GET['status']=="emailalredyexists"){
+    
+      <div class="alert alert-danger">
+        Email already exists
+      </div>
+    } 
+
+    if(@$_GET['status']=="weakpassword"){
+  
+    <div class="alert alert-danger">
       Weak password
-  </div>
-  <?php } ?>
-  <?php 
-  if(@$_GET['status']=="no"){
-  ?>
-  <div class="alert alert-danger">
-    Error! Username or password is wrong...
-  </div>
-  <?php } ?>
-  <?php 
-  if(@$_GET['status']=="exit"){
-  ?>
-  <div class="alert alert-danger">
-   exit
-  </div>
-  <?php } ?>
-  <?php 
-  if(@$_GET['status']=="ok"){
-  ?>
-  <div class="alert alert-success">
-    OK
-  </div>
-  <?php } ?>
+    </div>
+  } 
+
+    if(@$_GET['status']=="no"){
+  
+    <div class="alert alert-danger">
+      Error! Username or password is wrong...    // WTF ???
+    </div>
+    } 
+
+    if(@$_GET['status']=="exit"){
+  
+    <div class="alert alert-danger">
+      exit
+    </div>
+    } 
+
+    if(@$_GET['status']=="ok"){
+  
+    <div class="alert alert-success">
+      OK
+    </div>
+    } ?>
 
   <body>
     <?php 
     if(isset($_SESSION['username'])){
-    ?>
-    <p>Welcome to your home page,<?php echo $_SESSION['username']; ?></p>
+    
+    <p>Welcome to your home page, echo $_SESSION['username']; </p>
     <a href="logout.php"><button class="btn btn-success">exit</button></a>
-    <?php } ?>
+    } ?>
 
   <form class="container" action="../global/crud.php" method="POST">
   <div class="form-group">
