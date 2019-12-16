@@ -1,4 +1,4 @@
- #TODO: need to add the registration key logic!
+// TODO: need to add the registration key logic!
 
 <?php
   require('database.php');
@@ -39,6 +39,31 @@
     else {
       header("Location:../register.php?status=no");
     }
+  }
+  if(isset($_POST['login'])){
+  	
+
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+      // username and password sent from form
+      $username = $_POST['email'];
+      $password = $_POST['password'];
+      $query1 = $db->prepare('SELECT Password, MemberId FROM Member WHERE Email = ?');
+      $query1->execute([$username]);
+      $count = $query1->rowCount();
+      $row = $query1->fetch();
+      $password_h = $row['Password'];
+
+      // If result matched $myusername and $mypassword, table row must be 1 row
+      if($count == 1 && password_verify($password, $password_h)) {
+         $_SESSION['username'] = $username;
+
+         header("Location: index.html");
+      }else {
+         $error = "Your Login Name or Password is invalid!";
+         echo $error;
+      }
+   }
   }
 
 ?>
