@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-#TODO: need to check if we still need the Bootstrap header and footer. We might need to delete this stuff.
+<!-- TODO: need to check if we still need the Bootstrap header and footer. We might need to delete this stuff. -->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
@@ -13,35 +13,35 @@
   </head>
   <h1>Register</h1>
   <hr>
-  <?php 
+  <?php
   if(@$_GET['status']=="emailalredyexists"){
   ?>
   <div class="alert alert-danger">
       Email already exists
   </div>
   <?php } ?>
-  <?php 
+  <?php
   if(@$_GET['status']=="weakpassword"){
   ?>
   <div class="alert alert-danger">
       Weak password
   </div>
   <?php } ?>
-  <?php 
+  <?php
   if(@$_GET['status']=="no"){
   ?>
   <div class="alert alert-danger">
     Error! Username or password is wrong...
   </div>
   <?php } ?>
-  <?php 
+  <?php
   if(@$_GET['status']=="exit"){
   ?>
   <div class="alert alert-danger">
    exit
   </div>
   <?php } ?>
-  <?php 
+  <?php
   if(@$_GET['status']=="ok"){
   ?>
   <div class="alert alert-success">
@@ -50,7 +50,7 @@
   <?php } ?>
 
   <body>
-    <?php 
+    <?php
     if(isset($_SESSION['username'])){
     ?>
     <p>Welcome to your home page,<?php echo $_SESSION['username']; ?></p>
@@ -60,26 +60,26 @@
   <form class="container" action="../global/crud.php" method="POST">
   <div class="form-group">
     <label for="exampleInputEmail1">FirstName</label>
-    <input type="text" class="form-control"  name="FirstName" placeholder="Enter email">  
+    <input type="text" class="form-control"  name="FirstName" placeholder="Enter email">
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">LastName</label>
-    <input type="text" class="form-control"  name="LastName" placeholder="Enter email">  
+    <input type="text" class="form-control"  name="LastName" placeholder="Enter email">
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">email</label>
-    <input type="text" class="form-control"  name="Email" placeholder="Enter email">  
+    <input type="text" class="form-control"  name="Email" placeholder="Enter email">
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Password</label>
-    <input type="text" class="form-control"  name="Password" placeholder="Enter email">  
+    <input type="text" class="form-control"  name="Password" placeholder="Enter email">
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Registration key</label>
-    <input type="text" class="form-control"  name="Key" placeholder="Enter email">  
+    <input type="text" class="form-control"  name="Key" placeholder="Enter email">
   </div>
-  
-  
+
+
   <button type="submit" name="register" class="btn btn-primary">Submit</button>
 </form>
 

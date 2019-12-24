@@ -1,6 +1,6 @@
 <?php
-   require('../global/database.php');
-   session_start();
+require('../global/database.php');
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
   </head>
   <body>
     <h1>Sign In</h1>
-    <form action="../global/crud.php" method="post"> 
+    <form action="../global/crud.php" method="post">
       <div>
         <span class="label">email: </span>
         <input type="text" name="email" value="">

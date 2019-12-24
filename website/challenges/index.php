@@ -10,13 +10,12 @@ $memberId = 0;
 <html>
   <head>
     <title>Challenges</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
+      <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
   <body>
     <h1>Challenges</h1>
     <ul>
       <?php
-
       // Get list of challenges.
       $db = Database::getConnection();
       $query = $db->prepare('SELECT * FROM Challenge ORDER BY ChallengeId DESC');
@@ -68,7 +67,6 @@ $memberId = 0;
           echo '</li>';
         }
       }
-
       ?>
     </ul>
   </body>

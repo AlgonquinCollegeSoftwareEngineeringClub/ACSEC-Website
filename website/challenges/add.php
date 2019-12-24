@@ -1,20 +1,21 @@
 <?php
-  // NOTE: This page should only be accessible by admins.
 
-  require "../global/database.php";
+// NOTE: This page should only be accessible by admins.
 
-  if (isset($_POST['submit'])) {
+require "../global/database.php";
+
+if (isset($_POST['submit'])) {
     $db = Database::getConnection();
 
     if ($_POST['postdate'] !== '' && $_POST['title'] !== '' && $_POST['description'] !== '') {
-      if ($_POST['example'] === '') {
-        $query = $db->prepare('INSERT INTO Challenge(Title, DatePosted, Difficulty, Description) VALUES (?, ?, ?, ?)');
-        $query->execute([ $_POST['title'], $_POST['postdate'], $_POST['difficulty'], $_POST['description']]);
-      }
-      else {
-        $query = $db->prepare('INSERT INTO Challenge(Title, DatePosted, Difficulty, Description, Example) VALUES (?, ?, ?, ?, ?)');
-        $query->execute([ $_POST['title'], $_POST['postdate'], $_POST['difficulty'], $_POST['description'], $_POST['example']]);
-      }
+        if ($_POST['example'] === '') {
+            $query = $db->prepare('INSERT INTO Challenge(Title, DatePosted, Difficulty, Description) VALUES (?, ?, ?, ?)');
+            $query->execute([ $_POST['title'], $_POST['postdate'], $_POST['difficulty'], $_POST['description']]);
+        }
+        else {
+            $query = $db->prepare('INSERT INTO Challenge(Title, DatePosted, Difficulty, Description, Example) VALUES (?, ?, ?, ?, ?)');
+            $query->execute([ $_POST['title'], $_POST['postdate'], $_POST['difficulty'], $_POST['description'], $_POST['example']]);
+        }
     }
 
     $query = $db->prepare('SELECT ChallengeId FROM Challenge WHERE DatePosted = ?');
@@ -22,17 +23,18 @@
 
     $submitted = false;
     if ($query->rowCount() > 0) {
-      $submitted = true;
+        $submitted = true;
     }
 
     if ($submitted == true) {
-      echo "Challenge successfully added.";
+        echo "Challenge successfully added.";
     }
     else {
-      echo "Challenge could not be added!";
+        echo "Challenge could not be added!";
     }
-  }
-  else {
+}
+else {
+
 ?>
 
 <html>
@@ -71,5 +73,7 @@
 </html>
 
 <?php
-  }
+
+}
+
 ?>
