@@ -10,7 +10,23 @@ if (isset($_POST['register'])) {
     $lastName = $_POST['LastName'];
     $email = $_POST['Email'];
     $password = $_POST['Password'];
-    if (strlen($password) >= 6 && strlen($password) <= 60) {
+    $accountKey = $_POST['Key'];
+
+    // TODO: If there is no valid account key given, do not create account.
+    // Ensure given account key exists and is unclaimed.
+    // $keyExists = ;
+    // $keyIsUnclaimed = ;
+    // if ($keyExists && $keyIsUnclaimed) {
+    //
+    // }
+    // else if (!$keyExists) {
+    //     header("Location:../signin/register.php?status=keydoesntexist");
+    // }
+    // elseif (!$keyIsUnclaimed) {
+    //     header("Location:../signin/register.php?status=keyalreadyclaimed");
+    // }
+
+    if (strlen($password) >= 1 && strlen($password) <= 60) {
         $pass_ok = True;
     }
     $password = password_hash($password, PASSWORD_DEFAULT);
@@ -30,14 +46,14 @@ if (isset($_POST['register'])) {
         ));
 
         if ($check) {
-            header("Location:../register.php?status=ok");
+            header("Location:../signin/register.php?status=ok");
         }
         else {
-            header("Location:../register.php?status=no");
+            header("Location:../signin/register.php?status=no");
         }
     }
     else {
-        header("Location:../register.php?status=no");
+        header("Location:../signin/register.php?status=no");
     }
 }
 if (isset($_POST['login'])) {

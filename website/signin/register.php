@@ -1,3 +1,5 @@
+<?php require('registerstatus.php'); ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,42 +15,7 @@
   </head>
   <h1>Register</h1>
   <hr>
-  <?php
-  if(@$_GET['status']=="emailalredyexists"){
-  ?>
-  <div class="alert alert-danger">
-      Email already exists
-  </div>
-  <?php } ?>
-  <?php
-  if(@$_GET['status']=="weakpassword"){
-  ?>
-  <div class="alert alert-danger">
-      Weak password
-  </div>
-  <?php } ?>
-  <?php
-  if(@$_GET['status']=="no"){
-  ?>
-  <div class="alert alert-danger">
-    Error! Username or password is wrong...
-  </div>
-  <?php } ?>
-  <?php
-  if(@$_GET['status']=="exit"){
-  ?>
-  <div class="alert alert-danger">
-   exit
-  </div>
-  <?php } ?>
-  <?php
-  if(@$_GET['status']=="ok"){
-  ?>
-  <div class="alert alert-success">
-    OK
-  </div>
-  <?php } ?>
-
+  <?php handleRegisterReturnStatus(); ?>
   <body>
     <?php
     if(isset($_SESSION['username'])){
