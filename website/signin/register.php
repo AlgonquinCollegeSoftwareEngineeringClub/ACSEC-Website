@@ -41,6 +41,10 @@
       <button type="submit" name="register" class="btn btn-primary">Submit</button>
     </form>
 
+    <div>
+        <p>Already Have an account? <a href="login.php">Go to the signin page.</a></p>
+    </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
