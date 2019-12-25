@@ -64,7 +64,7 @@ if (isset($_POST['register'])) {
         ));
 
         if ($check) {
-            header("Location:../signin/register.php?status=ok");
+            header("Location:../signin/login.php?status=accountcreated");
             exit;
         }
         else {

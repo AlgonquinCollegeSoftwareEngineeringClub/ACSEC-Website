@@ -23,6 +23,8 @@ session_start();
 <?php
     if (@$_GET['status'] == "invalidcredentials")
         echo '<div class="alert alert-danger">Incorrect email or password.</div>';
+    else if (@$_GET['status'] == "accountcreated")
+        echo '<div class="alert alert-success">Account created.</div>';
 ?>
     <form class="container" action="../global/crud.php" method="post">
       <div class="form-group">

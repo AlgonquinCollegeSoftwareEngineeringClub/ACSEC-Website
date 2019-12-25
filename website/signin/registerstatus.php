@@ -23,11 +23,6 @@ function handleRegisterReturnStatus() {
 
     if (@$_GET['status'] == "keyalreadyclaimed")
         echoAlertFailure("The given key has already been claimed!");
-
-    // TODO: Alert message (OK) is not descriptive, find context and provide
-    // better infirmation to user.
-    if (@$_GET['status'] == "ok")
-        echoAlertSuccess("OK");
 }
 
 function echoAlertFailure($message) {
