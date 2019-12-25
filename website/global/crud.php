@@ -80,17 +80,18 @@ if (isset($_POST['register'])) {
 if (isset($_POST['login'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // username and password sent from form
-        $username = $_POST['email'];
+        $email = $_POST['email'];
         $password = $_POST['password'];
         $query1 = $db->prepare('SELECT Password, MemberId FROM Member WHERE Email = ?');
-        $query1->execute([$username]);
+        $query1->execute([$email]);
         $count = $query1->rowCount();
         $row = $query1->fetch();
         $password_h = $row['Password'];
 
         // If result matched $myusername and $mypassword, table row must be 1 row
         if ($count == 1 && password_verify($password, $password_h)) {
-            $_SESSION['username'] = $username;
+            $_SESSION['MemberId'] = $row['MemberId'];
+            $_SESSION['Email'] = $email;
 
             header("Location:../index.php?status=loggedin");
             exit;

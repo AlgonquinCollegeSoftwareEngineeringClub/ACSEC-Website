@@ -1,11 +1,9 @@
 <?php
 require '../global/database.php';
 
-$challengeId = htmlspecialchars($_GET["id"]);
+session_start();
 
-// TEMP:
-// This is a placeholder value, until the user accounts system is implemented.
-$memberId = 0;
+$challengeId = htmlspecialchars($_GET["id"]);
 
 $db = Database::getConnection();
 
@@ -46,7 +44,7 @@ if ($query->rowCount() > 0) {
 
             // Delete member's previous submission and files for this challenge.
             $query = $db->prepare('SELECT SubmissionId FROM Submission WHERE ChallengeId = ? AND MemberId = ?');
-            $query->execute([$challengeId, $memberId]);
+            $query->execute([$challengeId, $_SESSION['MemberId']]);
             foreach ($query as $row) {
                 $oldSubmissionId = $row['SubmissionId'];
                 $query = $db->prepare('DELETE FROM Submission WHERE SubmissionId = ?');
@@ -57,7 +55,7 @@ if ($query->rowCount() > 0) {
             }
 
             $query = $db->prepare('INSERT INTO Submission(MemberId, ChallengeId, TimePosted, Language) VALUES (?, ?, ?, ?)');
-            $query->execute([$memberId, $challengeId, $timePosted, $language]);
+            $query->execute([$_SESSION['MemberId'], $challengeId, $timePosted, $language]);
 
             $submissionId = 0;
             $query = $db->prepare('SELECT SubmissionId FROM Submission WHERE TimePosted = ?');
@@ -180,28 +178,33 @@ if ($query->rowCount() > 0) {
 
         echo '</div>';
 
-        echo '<form action="' . $_SERVER['PHP_SELF'] . '?id=' . $challengeId . '" method="post">';
-        echo '  <div id="code-submission-panel">';
-        echo '    <span class="label">Language: </span>';
-        echo '    <select name="language">';
-        echo '      <option value="java">Java</option>';
-        echo '      <option value="c">C</option>';
-        echo '      <option value="csharp">C#</option>';
-        echo '      <option value="cpp">C++</option>';
-        echo '      <option value="python">Python</option>';
-        echo '      <option value="javascript">JavaScript</option>';
-        echo '      <option value="other">Other</option>';
-        echo '    </select>';
-        echo '    <div id="file-area">';
-        echo '      <div>';
-        echo '        <input type="text" name="filename1" placeholder="filename">';
-        echo '        <textarea name="code1" rows=4 cols=50 placeholder="Enter your solution here..."></textarea>';
-        echo '      </div>';
-        echo '    </div>';
-        echo '    <button id="add-another-file" type="button">Add another file</button>';
-        echo '    <input type="submit" name="submit" value="Submit">';
-        echo '  </div>';
-        echo '</form>';
+        if (isset($_SESSION['MemberId'])) {
+            echo '<form action="' . $_SERVER['PHP_SELF'] . '?id=' . $challengeId . '" method="post">';
+            echo '  <div id="code-submission-panel">';
+            echo '    <span class="label">Language: </span>';
+            echo '    <select name="language">';
+            echo '      <option value="java">Java</option>';
+            echo '      <option value="c">C</option>';
+            echo '      <option value="csharp">C#</option>';
+            echo '      <option value="cpp">C++</option>';
+            echo '      <option value="python">Python</option>';
+            echo '      <option value="javascript">JavaScript</option>';
+            echo '      <option value="other">Other</option>';
+            echo '    </select>';
+            echo '    <div id="file-area">';
+            echo '      <div>';
+            echo '        <input type="text" name="filename1" placeholder="filename">';
+            echo '        <textarea name="code1" rows=4 cols=50 placeholder="Enter your solution here..."></textarea>';
+            echo '      </div>';
+            echo '    </div>';
+            echo '    <button id="add-another-file" type="button">Add another file</button>';
+            echo '    <input type="submit" name="submit" value="Submit">';
+            echo '  </div>';
+            echo '</form>';
+        }
+        else {
+            // TODO: User is not logged in, so give them a link to login so they can post..
+        }
 ?>
   </body>
 </html>

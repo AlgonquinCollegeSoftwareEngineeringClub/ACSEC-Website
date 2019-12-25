@@ -1,9 +1,7 @@
 <?php
 require '../global/database.php';
 
-// TEMP:
-// This is a placeholder value, until the user accounts system is implemented.
-$memberId = 0;
+session_start();
 
 ?>
 
@@ -45,9 +43,12 @@ $memberId = 0;
           $submissionCount = $submissionCountQuery->rowCount();
 
           // Check whether this member has submitted a solution for this challenge already.
-          $submittedQuery = $db->prepare('SELECT * FROM Submission WHERE ChallengeId = ? AND MemberId = ?');
-          $submittedQuery->execute([$challengeId, $memberId]);
-          $hasSubmitted = $submittedQuery->rowCount() > 0;
+          $hasSubmitted = false;
+          if (isset($_SESSION['MemberId'])) {
+              $submittedQuery = $db->prepare('SELECT * FROM Submission WHERE ChallengeId = ? AND MemberId = ?');
+              $submittedQuery->execute([$challengeId, $_SESSION['MemberId']]);
+              $hasSubmitted = $submittedQuery->rowCount() > 0;
+          }
 
           echo '<li>';
           echo '  <a href="../challenge/?id=' . $challengeId . '">';

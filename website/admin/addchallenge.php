@@ -5,7 +5,7 @@ require "../global/database.php";
 session_start();
 
 // Ensure only admins can access this page.
-if (!isset($_SESSION['username']) || $_SESSION['username'] !== "jess0076@algonquinlive.com") {
+if (!isset($_SESSION['MemberId']) || $_SESSION['Email'] !== "jess0076@algonquinlive.com") {
     header("Location:../index.php?status=deniedpermission");
     exit;
 }
