@@ -1,8 +1,14 @@
 <?php
 
-// NOTE: This page should only be accessible by admins.
-
 require "../global/database.php";
+
+session_start();
+
+// Ensure only admins can access this page.
+if (!isset($_SESSION['username']) || $_SESSION['username'] !== "jess0076@algonquinlive.com") {
+    header("Location:../index.php?status=deniedpermission");
+    exit;
+}
 
 if (isset($_POST['submit'])) {
     $db = Database::getConnection();

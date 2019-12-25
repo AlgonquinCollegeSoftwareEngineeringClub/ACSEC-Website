@@ -17,6 +17,8 @@
 <?php
     if (@$_GET['status'] == "loggedin" && isset($_SESSION['username']))
         echo '<div class="alert alert-success">Successfully logged in.</div>';
+    else if (@$_GET['status'] == "deniedpermission")
+        echo '<div class="alert alert-danger">You do not have permission to access that page.</div>';
 ?>
     <p>
       Welcome to the Algonquin College Software Engineering Club's website.
