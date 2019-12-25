@@ -32,13 +32,13 @@ function handleRegisterReturnStatus() {
 
 function echoAlertFailure($message) {
     echo '<div class="alert alert-danger">';
-    echo '  ' . $message;
+    echo $message;
     echo '</div>';
 }
 
 function echoAlertSuccess($message) {
     echo '<div class="alert alert-success">';
-    echo '  ' . $message;
+    echo $message;
     echo '</div>';
 }
 

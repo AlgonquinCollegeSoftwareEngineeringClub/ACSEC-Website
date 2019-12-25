@@ -1,5 +1,4 @@
 <?php
-// TODO: need to add the registration key logic!
 require('database.php');
 session_start();
 
@@ -12,19 +11,36 @@ if (isset($_POST['register'])) {
     $password = $_POST['Password'];
     $accountKey = $_POST['Key'];
 
-    // TODO: If there is no valid account key given, do not create account.
-    // Ensure given account key exists and is unclaimed.
-    // $keyExists = ;
-    // $keyIsUnclaimed = ;
-    // if ($keyExists && $keyIsUnclaimed) {
-    //
-    // }
-    // else if (!$keyExists) {
-    //     header("Location:../signin/register.php?status=keydoesntexist");
-    // }
-    // elseif (!$keyIsUnclaimed) {
-    //     header("Location:../signin/register.php?status=keyalreadyclaimed");
-    // }
+    // Check the given key to make sure it exists in the database.
+    $keyId = -1;
+    $query = $db->prepare('SELECT AccountKeyId FROM AccountKey WHERE TheKey = ?');
+    $query->execute([$accountKey]);
+    if ($query->rowCount() > 0) {
+        $keyExists = true;
+        $keyId = $query->fetch()['AccountKeyId'];
+    }
+    else {
+        $keyExists = false;
+    }
+
+    // Check whether the given key has already been claimed.
+    $query = $db->prepare('SELECT MemberId FROM Member WHERE AccountKeyId = ?');
+    $query->execute([$keyId]);
+    if ($query->rowCount() > 0) {
+        $keyIsUnclaimed = false;
+    }
+    else {
+        $keyIsUnclaimed = true;
+    }
+
+    if (!$keyExists) {
+        header("Location:../signin/register.php?status=keydoesntexist");
+        exit;
+    }
+    else if (!$keyIsUnclaimed) {
+        header("Location:../signin/register.php?status=keyalreadyclaimed");
+        exit;
+    }
 
     if (strlen($password) >= 1 && strlen($password) <= 60) {
         $pass_ok = True;
@@ -35,25 +51,30 @@ if (isset($_POST['register'])) {
             FirstName=:firstName,
             LastName=:lastName,
             Email=:email,
-            Password=:password
+            Password=:password,
+            AccountKeyId=:keyId
         ");
 
         $check=$insert->execute(array(
             'firstName'=>$firstName,
             'lastName'=>$lastName,
             'email'=>$email,
-            'password'=>$password
+            'password'=>$password,
+            'keyId'=>$keyId
         ));
 
         if ($check) {
             header("Location:../signin/register.php?status=ok");
+            exit;
         }
         else {
             header("Location:../signin/register.php?status=no");
+            exit;
         }
     }
     else {
         header("Location:../signin/register.php?status=no");
+        exit;
     }
 }
 if (isset($_POST['login'])) {
@@ -72,6 +93,7 @@ if (isset($_POST['login'])) {
             $_SESSION['username'] = $username;
 
             header("Location: index.html");
+            exit;
         }
         else {
             $error = "Your Login Name or Password is invalid!";
