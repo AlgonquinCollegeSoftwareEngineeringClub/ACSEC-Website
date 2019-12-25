@@ -92,7 +92,7 @@ if (isset($_POST['login'])) {
         if ($count == 1 && password_verify($password, $password_h)) {
             $_SESSION['username'] = $username;
 
-            header("Location: index.html");
+            header("Location:../index.php?status=loggedin");
             exit;
         }
         else {
