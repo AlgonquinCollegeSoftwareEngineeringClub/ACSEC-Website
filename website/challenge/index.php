@@ -205,7 +205,8 @@ if ($query->rowCount() > 0) {
             echo '</form>';
         }
         else {
-            // TODO: User is not logged in, so give them a link to login so they can post..
+            echo "If you would like to make a submission, please log in.<br>";
+            echo '<a href="../signin/login.php">click here to go to the login page</a>';
         }
 ?>
   </body>
