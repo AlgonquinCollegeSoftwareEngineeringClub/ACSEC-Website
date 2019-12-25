@@ -96,8 +96,8 @@ if (isset($_POST['login'])) {
             exit;
         }
         else {
-            $error = "Your Login Name or Password is invalid!";
-            echo $error;
+            header("Location:../signin/login.php?status=invalidcredentials");
+            exit;
         }
     }
 }

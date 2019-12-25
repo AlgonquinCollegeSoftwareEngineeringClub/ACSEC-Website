@@ -20,6 +20,10 @@ session_start();
   <body>
     <h1>Sign In</h1>
     <hr>
+<?php
+    if (@$_GET['status'] == "invalidcredentials")
+        echo '<div class="alert alert-danger">Incorrect email or password.</div>';
+?>
     <form class="container" action="../global/crud.php" method="post">
       <div class="form-group">
         <label>email</label>
