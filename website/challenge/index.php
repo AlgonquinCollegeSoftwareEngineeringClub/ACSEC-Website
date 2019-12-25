@@ -135,10 +135,12 @@ if ($query->rowCount() > 0) {
         $submissionQuery->execute([$challengeId]);
         foreach($submissionQuery as $submissionRow) {
             $submissionId = $submissionRow['SubmissionId'];
-            // TEMP:
-            // MemberId should be used to gather the member info once the log-in system is added.
-            $firstName = "John";
-            $lastName = "Smith";
+
+            $memberNameQuery = $db->prepare('SELECT FirstName, LastName FROM Member WHERE MemberId = ? LIMIT 1');
+            $memberNameQuery->execute([$submissionRow['MemberId']]);
+            $nameQueryResult = $memberNameQuery->fetch();
+            $firstName = $nameQueryResult['FirstName'];
+            $lastName = $nameQueryResult['LastName'];
 
             $language = $submissionRow['Language'];
             if ($language == 'cpp')
