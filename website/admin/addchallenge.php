@@ -67,11 +67,11 @@ else {
       </div>
       <div>
         <label for="description">Description:</label>
-        <textarea name="description" id="description" rows="10" cols="30" value=""></textarea>
+        <textarea name="description" id="description" rows="20" cols="60" value=""></textarea>
       </div>
       <div>
         <label for="example">Example:</label>
-        <textarea name="example" id="example" rows="10" cols="30" value=""></textarea>
+        <textarea name="example" id="example" rows="20" cols="60" value=""></textarea>
       </div>
       <input type="submit" name="submit" value="Submit">
     </form>
