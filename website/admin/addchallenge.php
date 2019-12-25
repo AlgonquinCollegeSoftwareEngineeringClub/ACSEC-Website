@@ -39,7 +39,7 @@ else {
 
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="add.css">
+    <link rel="stylesheet" type="text/css" href="addchallenge.css">
   </head>
   <body>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
