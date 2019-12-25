@@ -26,12 +26,12 @@
 
   <form class="container" action="../global/crud.php" method="POST">
   <div class="form-group">
-    <label for="exampleInputEmail1">FirstName</label>
-    <input type="text" class="form-control"  name="FirstName" placeholder="Enter email">
+    <label for="exampleInputEmail1">First Name</label>
+    <input type="text" class="form-control"  name="FirstName" placeholder="Enter First Name">
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">LastName</label>
-    <input type="text" class="form-control"  name="LastName" placeholder="Enter email">
+    <label for="exampleInputEmail1">Last Name</label>
+    <input type="text" class="form-control"  name="LastName" placeholder="Enter Last Name">
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">email</label>
@@ -39,13 +39,12 @@
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Password</label>
-    <input type="text" class="form-control"  name="Password" placeholder="Enter email">
+    <input type="password" class="form-control"  name="Password" placeholder="Enter Password">
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Registration key</label>
-    <input type="text" class="form-control"  name="Key" placeholder="Enter email">
+    <input type="text" class="form-control"  name="Key" placeholder="Enter Key">
   </div>
-
 
   <button type="submit" name="register" class="btn btn-primary">Submit</button>
 </form>
