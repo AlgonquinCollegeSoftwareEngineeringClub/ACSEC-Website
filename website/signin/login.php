@@ -25,6 +25,8 @@ session_start();
         echo '<div class="alert alert-danger">Incorrect email or password.</div>';
     else if (@$_GET['status'] == "accountcreated")
         echo '<div class="alert alert-success">Account created.</div>';
+    else if (@$_GET['status'] == "loggedout")
+        echo '<div class="alert alert-success">You have successfully logged out.</div>';
 ?>
     <form class="container" action="../global/crud.php" method="post">
       <div class="form-group">
