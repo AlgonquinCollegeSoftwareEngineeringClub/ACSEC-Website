@@ -32,7 +32,8 @@
         <li>CA202 - Wednesday from 10:00am to 12:00pm.</li>
       </ul>
     </div>
-    <a href="projects/">View our projects.</a>
+    <p><a href="projects/">View our projects.</a></p>
+    <p><a href="challenges/">View challenges.</a></p>
     <p>
       Contact us at: <a href="mailto:contact@acsec.ca">contact@acsec.ca</a>.
     </p>
