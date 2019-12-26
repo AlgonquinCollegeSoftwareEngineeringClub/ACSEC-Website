@@ -17,10 +17,19 @@
 // (under construction) Member list
 // (under construction) Project list
 
-function echoBanner() {
+function echoBanner($isInParent = false) {
     // Create User Bar.
     if (isset($_SESSION['MemberId'])) {
-        echo $_SESSION['FirstName'] . " is logged in";
+        // TODO: Clicking on the user's name should bring them to their member
+        // page.
+        echo $_SESSION['FirstName'] . ' ' . $_SESSION['LastName'] . ' ';
+
+        if ($isInParent)
+            $pathToSignout = 'global/signout.php';
+        else
+            $pathToSignout = '../global/signout.php';
+
+        echo '<a href="' . $pathToSignout . '">Sign out</a>';
     }
     else {
         echo "not logged in";
