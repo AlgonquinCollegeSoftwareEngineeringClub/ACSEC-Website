@@ -27,20 +27,19 @@ function echoBanner($isInParent = false) {
     if (isset($_SESSION['MemberId'])) {
         // TODO: Clicking on the user's name should bring them to their member
         // page.
-        echo $_SESSION['FirstName'] . ' ' . $_SESSION['LastName'] . ' ';
-        echo '<a href="' . $navPrefix . 'global/signout.php">Sign out</a>';
+        echo '<a href="'. $navPrefix . 'member/?id=' . $_SESSION['MemberId'] . '" class="btn btn-primary">' . $_SESSION['FirstName'] . ' ' . $_SESSION['LastName'] . '</a> ';
+        echo '<a href="' . $navPrefix . 'global/signout.php" class="btn">Sign out</a>';
     }
     else {
-        echo 'not logged in ';
-        echo '<a href="' . $navPrefix . 'signin/">Sign in</a> ';
-        echo '<a href="' . $navPrefix . 'register/">Register</a>';
+        echo '<a href="' . $navPrefix . 'signin/" class="btn">Sign in</a> ';
+        echo '<a href="' . $navPrefix . 'register/" class="btn">Register</a>';
     }
 
     // Create Navigation Bar.
     echo '<hr>';
-    echo '<a href="' . $navPrefix . './">Front Page</a> '; // Should direct to main page. Note sure how main page should self-direct.
-    echo '<a href="' . $navPrefix . 'challenges/">Challenges</a> ';
-    echo '<a href="' . $navPrefix . 'projects/">Projects</a> ';
-    echo '<a href="' . $navPrefix . 'members/">Members</a>';
+    echo '<a href="' . $navPrefix . './" class="btn">Front Page</a> '; // Should direct to main page. Note sure how main page should self-direct.
+    echo '<a href="' . $navPrefix . 'challenges/" class="btn">Challenges</a> ';
+    echo '<a href="' . $navPrefix . 'projects/" class="btn">Projects</a> ';
+    echo '<a href="' . $navPrefix . 'members/" class="btn">Members</a>';
     echo '<hr>';
 }
