@@ -45,6 +45,7 @@ else {
 
 <html>
   <head>
+    <title>Add Challenge</title>
     <link rel="stylesheet" type="text/css" href="addchallenge.css">
   </head>
   <body>

@@ -35,6 +35,7 @@ else {
 
 <html>
   <head>
+    <title>Add Key</title>
     <link rel="stylesheet" type="text/css" href="addchallenge.css">
   </head>
   <body>

@@ -8,8 +8,8 @@ session_start();
 <html>
   <head>
     <title>Challenges</title>
-      <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
   <body>
     <h1>Challenges</h1>
     <ul>
