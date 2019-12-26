@@ -32,12 +32,12 @@ if (!isset($_SESSION['MemberId']) || $_SESSION['Email'] !== "jess0076@algonquinl
     else if (@$_GET['status'] == "blank")
         echo '<div class="alert alert-danger">You cannot add a blank key.</div>';
 ?>
-    <form action="../global/crud.php" method="post">
-      <div>
+    <form class="container" action="../global/crud.php" method="post">
+      <div class="form-group">
         <label for="key">Key</label>
-        <input type="text" name="key" id="key" value="">
+        <input type="text" class="form-control" name="key" id="key" value="">
       </div>
-      <input type="submit" name="addkey" value="Submit">
+      <input type="submit" class="btn btn-primary" name="addkey" value="Submit">
     </form>
     <?php echoBootstrapScripts(); ?>
   </body>

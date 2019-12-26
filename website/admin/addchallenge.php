@@ -18,7 +18,6 @@ if (!isset($_SESSION['MemberId']) || $_SESSION['Email'] !== "jess0076@algonquinl
   <head>
     <?php echoBootstrapStyle(); ?>
     <title>Add Challenge</title>
-    <link rel="stylesheet" type="text/css" href="addchallenge.css">
   </head>
   <body>
     <?php echoBanner(); ?>
@@ -30,32 +29,32 @@ if (!isset($_SESSION['MemberId']) || $_SESSION['Email'] !== "jess0076@algonquinl
     else if (@$_GET['status'] == "failed")
         echo '<div class="alert alert-danger">The challenge could not be added.</div>';
 ?>
-    <form action="../global/crud.php" method="post">
-      <div>
+    <form class="container" action="../global/crud.php" method="post">
+      <div class="form-group">
         <label for="title">Title:</label>
-        <input type="text" name="title" id="title" value="">
+        <input type="text" class="form-control" name="title" id="title" value="">
       </div>
-      <div>
+      <div class="form-group">
         <label for="date">Date to post:</label>
-        <input type="date" name="postdate" id="date" value="">
+        <input type="date" class="form-control" name="postdate" id="date" value="">
       </div>
-      <div>
+      <div class="form-group">
         <label for="difficulty">Difficulty:</label>
-        <select name="difficulty" id="difficulty">
+        <select name="difficulty" class="form-control" id="difficulty">
           <option value="1">Easy</option>
           <option value="2">Medium</option>
           <option value="3">Hard</option>
         </select>
       </div>
-      <div>
+      <div class="form-group">
         <label for="description">Description:</label>
-        <textarea name="description" id="description" rows="20" cols="60" value=""></textarea>
+        <textarea name="description" class="form-control" id="description" rows="20" value=""></textarea>
       </div>
-      <div>
+      <div class="form-group">
         <label for="example">Example:</label>
-        <textarea name="example" id="example" rows="20" cols="60" value=""></textarea>
+        <textarea name="example" class="form-control" id="example" rows="20" value=""></textarea>
       </div>
-      <input type="submit" name="addchallenge" value="Submit">
+      <input type="submit" class="btn btn-primary" name="addchallenge" value="Submit">
     </form>
     <?php echoBootstrapScripts(); ?>
   </body>
