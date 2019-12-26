@@ -26,6 +26,9 @@ function handleRegisterReturnStatus() {
 
     if (@$_GET['status'] == "invalidemail")
         echoAlertFailure("You must provide a valid email address!");
+
+    if (@$_GET['status'] == "passwordwronglength")
+        echoAlertFailure("Password must be between 1 and 60 characters.");
 }
 
 function echoAlertFailure($message) {

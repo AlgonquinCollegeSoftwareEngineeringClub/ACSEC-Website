@@ -49,8 +49,9 @@ if (isset($_POST['register'])) {
     if (strlen($password) >= 1 && strlen($password) <= 60) {
         $pass_ok = True;
     }
-    $password = password_hash($password, PASSWORD_DEFAULT);
+
     if ($pass_ok) {
+        $password = password_hash($password, PASSWORD_DEFAULT);
         $insert=$db->prepare("INSERT INTO Member SET
             FirstName=:firstName,
             LastName=:lastName,
@@ -77,7 +78,7 @@ if (isset($_POST['register'])) {
         }
     }
     else {
-        header("Location:../signin/register.php?status=no");
+        header("Location:../signin/register.php?status=passwordwronglength");
         exit;
     }
 }
