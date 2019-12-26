@@ -13,11 +13,11 @@ if (isset($_POST['register'])) {
 
     // Ensure the given names are not blank.
     if ($firstName == '') {
-        header("Location:../signin/register.php?status=blankname");
+        header("Location:../register/index.php?status=blankname");
         exit;
     }
     else if ($lastName == '') {
-        header("Location:../signin/register.php?status=blanklastname");
+        header("Location:../register/index.php?status=blanklastname");
         exit;
     }
 
@@ -44,15 +44,15 @@ if (isset($_POST['register'])) {
     }
 
     if (!$keyExists) {
-        header("Location:../signin/register.php?status=keydoesntexist");
+        header("Location:../register/index.php?status=keydoesntexist");
         exit;
     }
     else if (!$keyIsUnclaimed) {
-        header("Location:../signin/register.php?status=keyalreadyclaimed");
+        header("Location:../register/index.php?status=keyalreadyclaimed");
         exit;
     }
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location:../signin/register.php?status=invalidemail");
+        header("Location:../register/index.php?status=invalidemail");
         exit;
     }
 
@@ -66,16 +66,16 @@ if (isset($_POST['register'])) {
         $check=$insert->execute([ $firstName, $lastName, $email, $password, $keyId ]);
 
         if ($check) {
-            header("Location:../signin/login.php?status=accountcreated");
+            header("Location:../signin/index.php?status=accountcreated");
             exit;
         }
         else {
-            header("Location:../signin/register.php?status=createfailed");
+            header("Location:../register/index.php?status=createfailed");
             exit;
         }
     }
     else {
-        header("Location:../signin/register.php?status=passwordwronglength");
+        header("Location:../register/index.php?status=passwordwronglength");
         exit;
     }
 }
@@ -99,7 +99,7 @@ if (isset($_POST['login'])) {
             exit;
         }
         else {
-            header("Location:../signin/login.php?status=invalidcredentials");
+            header("Location:../signin/index.php?status=invalidcredentials");
             exit;
         }
     }
