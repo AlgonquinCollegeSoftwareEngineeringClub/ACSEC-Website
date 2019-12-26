@@ -79,12 +79,12 @@ if (isset($_POST['register'])) {
         exit;
     }
 }
-if (isset($_POST['login'])) {
+else if (isset($_POST['login'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // username and password sent from form
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $query1 = $db->prepare('SELECT Password, MemberId FROM Member WHERE Email = ?');
+        $query1 = $db->prepare('SELECT Password, MemberId, FirstName, LastName FROM Member WHERE Email = ?');
         $query1->execute([$email]);
         $count = $query1->rowCount();
         $row = $query1->fetch();
@@ -94,6 +94,8 @@ if (isset($_POST['login'])) {
         if ($count == 1 && password_verify($password, $password_h)) {
             $_SESSION['MemberId'] = $row['MemberId'];
             $_SESSION['Email'] = $email;
+            $_SESSION['FirstName'] = $row['FirstName'];
+            $_SESSION['LastName'] = $row['LastName'];
 
             header("Location:../index.php?status=loggedin");
             exit;
@@ -102,6 +104,26 @@ if (isset($_POST['login'])) {
             header("Location:../signin/index.php?status=invalidcredentials");
             exit;
         }
+    }
+}
+else if (isset($_POST['addkey'])) {
+    $key = $_POST['key'];
+    if ($key !== '') {
+        try {
+            $query = $db->prepare('INSERT INTO AccountKey(TheKey) VALUES (?)');
+            $query->execute([ $key ]);
+
+            header("Location:../admin/addkey.php?status=added");
+            exit;
+        }
+        catch (PDOException $e) {
+            header("Location:../admin/addkey.php?status=alreadyexists");
+            exit;
+        }
+    }
+    else {
+        header("Location:../admin/addkey.php?status=blank");
+        exit;
     }
 }
 ?>
