@@ -19,3 +19,7 @@ li.L5, li.L6, li.L7, li.L8 {
 .prettyprint {
   overflow-x: scroll;
 }
+
+textarea {
+  font-family: monospace;
+}

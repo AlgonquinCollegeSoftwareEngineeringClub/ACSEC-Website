@@ -52,7 +52,7 @@ if (!isset($_SESSION['MemberId']) || $_SESSION['Email'] !== "jess0076@algonquinl
       </div>
       <div class="form-group">
         <label for="example">Example:</label>
-        <textarea name="example" class="form-control" id="example" rows="20" value=""></textarea>
+        <textarea name="example" class="form-control" id="example" rows="20" style="font-family:monospace;" value=""></textarea>
       </div>
       <input type="submit" class="btn btn-primary" name="addchallenge" value="Submit">
     </form>
