@@ -1,4 +1,5 @@
 <?php
+
 require('database.php');
 session_start();
 
@@ -82,7 +83,7 @@ if (isset($_POST['register'])) {
 else if (isset($_POST['login'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // username and password sent from form
-        $email = $_POST['email'];
+        $email = trim($_POST['email']);
         $password = $_POST['password'];
         $query1 = $db->prepare('SELECT Password, MemberId, FirstName, LastName FROM Member WHERE Email = ?');
         $query1->execute([$email]);
@@ -126,4 +127,34 @@ else if (isset($_POST['addkey'])) {
         exit;
     }
 }
-?>
+else if (isset($_POST['addchallenge'])) {
+    if ($_POST['postdate'] !== '' && $_POST['title'] !== '' && $_POST['description'] !== '') {
+        if ($_POST['example'] === '') {
+            $query = $db->prepare('INSERT INTO Challenge(Title, DatePosted, Difficulty, Description) VALUES (?, ?, ?, ?)');
+            $query->execute([ $_POST['title'], $_POST['postdate'], $_POST['difficulty'], $_POST['description']]);
+        }
+        else {
+            $query = $db->prepare('INSERT INTO Challenge(Title, DatePosted, Difficulty, Description, Example) VALUES (?, ?, ?, ?, ?)');
+            $query->execute([ $_POST['title'], $_POST['postdate'], $_POST['difficulty'], $_POST['description'], $_POST['example']]);
+        }
+    }
+
+    $query = $db->prepare('SELECT ChallengeId FROM Challenge WHERE DatePosted = ?');
+    $query->execute([$_POST['postdate']]);
+
+    $submitted = false;
+    if ($query->rowCount() > 0) {
+        $submitted = true;
+    }
+
+    if ($submitted == true) {
+        header("Location:../admin/addchallenge.php?status=added");
+        exit;
+    }
+    else {
+        header("Location:../admin/addkey.php?status=failed");
+        exit;
+    }
+}
+
+// EOF

@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<?php require '../global/bootstrap.php'; ?>
+<?php require 'global/bootstrap.php'; ?>
 
 <!DOCTYPE html>
 <html>
