@@ -186,10 +186,10 @@ if ($query->rowCount() > 0) {
         echo '</div>';
 
         if (isset($_SESSION['MemberId'])) {
-            echo '<form action="' . $_SERVER['PHP_SELF'] . '?id=' . $challengeId . '" method="post">';
-            echo '  <div id="code-submission-panel">';
-            echo '    <span class="label">Language: </span>';
-            echo '    <select name="language">';
+            echo '<form action="' . $_SERVER['PHP_SELF'] . '?id=' . $challengeId . '" class="container" method="post">';
+            echo '  <div class="form-group">';
+            echo '    <label for="language">Language: </label>';
+            echo '    <select class="form-control" name="language">';
             echo '      <option value="java">Java</option>';
             echo '      <option value="c">C</option>';
             echo '      <option value="csharp">C#</option>';
@@ -198,14 +198,15 @@ if ($query->rowCount() > 0) {
             echo '      <option value="javascript">JavaScript</option>';
             echo '      <option value="other">Other</option>';
             echo '    </select>';
-            echo '    <div id="file-area">';
-            echo '      <div>';
-            echo '        <input type="text" name="filename1" placeholder="filename">';
-            echo '        <textarea name="code1" rows=4 cols=50 placeholder="Enter your solution here..."></textarea>';
-            echo '      </div>';
+            echo '  </div>';
+            echo '  <div id="file-area">';
+            echo '    <div class="form-group">';
+            echo '      <input type="text" class="form-control" name="filename1" placeholder="filename">';
+            echo '      <textarea name="code1" class="form-control" rows=4 placeholder="Enter your solution here..."></textarea>';
             echo '    </div>';
-            echo '    <button id="add-another-file" type="button">Add another file</button>';
-            echo '    <input type="submit" name="submit" value="Submit">';
+            echo '  </div>';
+            echo '  <button id="add-another-file" class="btn btn-secondary" type="button">Add another file</button>';
+            echo '  <input type="submit" name="submit" class="btn btn-primary" value="Submit">';
             echo '  </div>';
             echo '</form>';
         }

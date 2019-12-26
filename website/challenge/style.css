@@ -6,28 +6,6 @@
   margin: 10px 0px;
 }
 
-#code-submission-panel > * {
-  display: block;
-}
-
-#code-submission-panel > span, #code-submission-panel > select {
-  display: inline-block;
-}
-
-#file-area > div {
-  margin: 10px;
-}
-
-#file-area > div > * {
-  display: block;
-  margin: 5px;
-}
-
-#file-area textarea {
-  width: 100%;
-  height: 20%;
-}
-
 .filename {
   font-style: italic;
   font-weight: normal;
