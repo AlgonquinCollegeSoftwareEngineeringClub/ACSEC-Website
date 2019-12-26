@@ -38,7 +38,7 @@
 
     <div>
         <p>If you're a member of the Software Engineering Club and need a key, message Corvus#4166 on discord.</p>
-        <p>Already Have an account? <a href="login.php">Go to the signin page.</a></p>
+        <p>Already Have an account? <a href="../signin/index.php">Go to the sign in page.</a></p>
     </div>
     <?php echoBootstrapScripts(); ?>
   </body>
