@@ -3,7 +3,7 @@
 session_start();
 
 if (session_destroy()) {
-    header("Location:../signin/index.php?status=loggedout");
+    header("Location:../signin/?status=loggedout");
 }
 
 // EOF

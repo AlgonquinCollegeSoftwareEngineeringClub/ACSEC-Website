@@ -14,11 +14,11 @@ if (isset($_POST['register'])) {
 
     // Ensure the given names are not blank.
     if ($firstName == '') {
-        header("Location:../register/index.php?status=blankname");
+        header("Location:../register/?status=blankname");
         exit;
     }
     else if ($lastName == '') {
-        header("Location:../register/index.php?status=blanklastname");
+        header("Location:../register/?status=blanklastname");
         exit;
     }
 
@@ -45,15 +45,15 @@ if (isset($_POST['register'])) {
     }
 
     if (!$keyExists) {
-        header("Location:../register/index.php?status=keydoesntexist");
+        header("Location:../register/?status=keydoesntexist");
         exit;
     }
     else if (!$keyIsUnclaimed) {
-        header("Location:../register/index.php?status=keyalreadyclaimed");
+        header("Location:../register/?status=keyalreadyclaimed");
         exit;
     }
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location:../register/index.php?status=invalidemail");
+        header("Location:../register/?status=invalidemail");
         exit;
     }
 
@@ -67,16 +67,16 @@ if (isset($_POST['register'])) {
         $check=$insert->execute([ $firstName, $lastName, $email, $password, $keyId ]);
 
         if ($check) {
-            header("Location:../signin/index.php?status=accountcreated");
+            header("Location:../signin/?status=accountcreated");
             exit;
         }
         else {
-            header("Location:../register/index.php?status=createfailed");
+            header("Location:../register/?status=createfailed");
             exit;
         }
     }
     else {
-        header("Location:../register/index.php?status=passwordwronglength");
+        header("Location:../register/?status=passwordwronglength");
         exit;
     }
 }
