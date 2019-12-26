@@ -15,8 +15,8 @@
   </head>
   <body>
 <?php
-    if (@$_GET['status'] == "loggedin" && isset($_SESSION['username']))
-        echo '<div class="alert alert-success">Successfully logged in.</div>';
+    if (@$_GET['status'] == "loggedin" && isset($_SESSION['MemberId']))
+        echo '<div class="alert alert-success">Successfully signed in.</div>';
     else if (@$_GET['status'] == "deniedpermission")
         echo '<div class="alert alert-danger">You do not have permission to access that page.</div>';
 ?>
