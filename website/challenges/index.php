@@ -1,5 +1,7 @@
 <?php
+
 require '../global/database.php';
+require '../global/banner.php';
 
 session_start();
 
@@ -11,6 +13,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
+    <?php echoBanner(); ?>
     <h1>Challenges</h1>
     <ul>
       <?php

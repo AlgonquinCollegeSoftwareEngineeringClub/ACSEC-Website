@@ -1,5 +1,6 @@
 <?php require 'registerstatus.php'; ?>
 <?php require '../global/bootstrap.php'; ?>
+<?php require '../global/banner.php'; ?>
 
 <!doctype html>
 <html lang="en">
@@ -7,10 +8,11 @@
     <?php echoBootstrapStyle(); ?>
     <title>Register</title>
   </head>
-  <h1>Register</h1>
-  <hr>
-  <?php handleRegisterReturnStatus(); ?>
   <body>
+    <?php echoBanner(); ?>
+    <h1>Register</h1>
+    <hr>
+    <?php handleRegisterReturnStatus(); ?>
     <form class="container" action="../global/crud.php" method="POST">
       <div class="form-group">
         <label for="exampleInputEmail1">First Name</label>

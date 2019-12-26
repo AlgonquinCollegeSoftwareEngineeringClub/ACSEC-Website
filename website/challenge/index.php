@@ -1,5 +1,7 @@
 <?php
+
 require '../global/database.php';
+require '../global/banner.php';
 
 session_start();
 
@@ -103,6 +105,7 @@ if ($query->rowCount() > 0) {
     <script src="../global/collapsible.js"></script>
   </head>
   <body>
+    <?php echoBanner(); ?>
     <h1>Challenge <?php echo $challengeId . ': ' . $challengeTitle; ?></h1>
     <p>Posted on <?php echo date("M j, Y", strtotime($challengeDate)); ?></p>
 

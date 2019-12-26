@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php require 'global/bootstrap.php'; ?>
+<?php require 'global/banner.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -9,15 +10,15 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
+    <?php echoBanner(); ?>
+    <h1>Welcome</h1>
+    <hr>
 <?php
     if (@$_GET['status'] == "loggedin" && isset($_SESSION['MemberId']))
         echo '<div class="alert alert-success">Successfully signed in.</div>';
     else if (@$_GET['status'] == "deniedpermission")
         echo '<div class="alert alert-danger">You do not have permission to access that page.</div>';
 ?>
-    <p>
-      Welcome to the Algonquin College Software Engineering Club's website.
-    </p>
     <div>
       <p>
         Our meet-up schedule is as follows:

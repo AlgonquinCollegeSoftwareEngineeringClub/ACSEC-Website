@@ -1,7 +1,10 @@
 <?php
+
 require '../global/database.php';
 require '../global/bootstrap.php';
+require '../global/banner.php';
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +14,7 @@ session_start();
     <title>Sign In</title>
   </head>
   <body>
+    <?php echoBanner(); ?>
     <h1>Sign In</h1>
     <hr>
 <?php

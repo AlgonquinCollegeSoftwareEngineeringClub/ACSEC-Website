@@ -2,6 +2,7 @@
 
 require "../global/database.php";
 require '../global/bootstrap.php';
+require '../global/banner.php';
 
 session_start();
 
@@ -20,6 +21,7 @@ if (!isset($_SESSION['MemberId']) || $_SESSION['Email'] !== "jess0076@algonquinl
     <link rel="stylesheet" type="text/css" href="addchallenge.css">
   </head>
   <body>
+    <?php echoBanner(); ?>
     <h1>Add Key</h1>
     <hr>
 <?php
