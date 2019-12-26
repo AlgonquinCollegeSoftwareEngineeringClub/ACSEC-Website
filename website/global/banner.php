@@ -18,20 +18,20 @@
 // (under construction) Project list
 
 function echoBanner($isInParent = false) {
+    if ($isInParent)
+        $navPrefix = '';
+    else
+        $navPrefix = '../';
+
     // Create User Bar.
     if (isset($_SESSION['MemberId'])) {
         // TODO: Clicking on the user's name should bring them to their member
         // page.
         echo $_SESSION['FirstName'] . ' ' . $_SESSION['LastName'] . ' ';
-
-        if ($isInParent)
-            $pathToSignout = 'global/signout.php';
-        else
-            $pathToSignout = '../global/signout.php';
-
-        echo '<a href="' . $pathToSignout . '">Sign out</a>';
+        echo '<a href="' . $navPrefix . 'global/signout.php">Sign out</a>';
     }
     else {
-        echo "not logged in";
+        echo 'not logged in ';
+        echo '<a href="' . $navPrefix . 'signin/">Sign in</a>';
     }
 }
