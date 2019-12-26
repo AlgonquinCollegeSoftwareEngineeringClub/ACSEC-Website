@@ -2,6 +2,7 @@
 
 require '../global/database.php';
 require '../global/banner.php';
+require '../global/bootstrap.php';
 
 session_start();
 
@@ -9,6 +10,7 @@ session_start();
 
 <html>
   <head>
+    <?php echoBootstrapStyle(); ?>
     <title>Challenges</title>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -54,18 +56,18 @@ session_start();
           }
 
           echo '<li>';
-          echo '  <a href="../challenge/?id=' . $challengeId . '">';
+          echo '  <a href="../challenge/?id=' . $challengeId . '" class="challenge-link">';
 
           if ($hasSubmitted)
             echo '  <div class="challenge-item submitted">';
           else
             echo '  <div class="challenge-item">';
 
-          echo '      <h3 class="challenge-number">' . $challengeId . '</h3>';
-          echo '      <h3 class="challenge-title">' . $title . '</h3>';
-          echo '      <h3 class="challenge-difficulty">' . $difficulty . '</h3>';
-          echo '      <h3 class="challenge-submissions">Submissions: ' . $submissionCount . '</h3>';
-          echo '      <h3 class="challenge-date">' . $date . '</h3>';
+          echo '      <span class="challenge-number">' . $challengeId . '</span>';
+          echo '      <span class="challenge-title">' . $title . '</span>';
+          echo '      <span class="challenge-difficulty">' . $difficulty . '</span>';
+          echo '      <span class="challenge-submissions">Submissions: ' . $submissionCount . '</span>';
+          echo '      <span class="challenge-date">' . $date . '</span>';
           echo '    </div>';
           echo '  </a>';
           echo '</li>';
@@ -73,5 +75,6 @@ session_start();
       }
       ?>
     </ul>
+    <?php echoBootstrapScripts(); ?>
   </body>
 </html>

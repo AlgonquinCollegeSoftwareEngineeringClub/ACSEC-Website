@@ -2,6 +2,7 @@
 
 require '../global/database.php';
 require '../global/banner.php';
+require '../global/bootstrap.php';
 
 session_start();
 
@@ -96,6 +97,7 @@ if ($query->rowCount() > 0) {
 
 <html>
   <head>
+    <?php echoBootstrapStyle(); ?>
     <title><?php echo $challengeTitle; ?></title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="../global/collapsible.css">
@@ -212,6 +214,7 @@ if ($query->rowCount() > 0) {
             echo '<a href="../signin/login.php">click here to go to the login page</a>';
         }
 ?>
+    <?php echoBootstrapScripts(); ?>
   </body>
 </html>
 
