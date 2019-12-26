@@ -210,8 +210,8 @@ if ($query->rowCount() > 0) {
             echo '</form>';
         }
         else {
-            echo "If you would like to make a submission, please log in.<br>";
-            echo '<a href="../signin/login.php">click here to go to the login page</a>';
+            echo "If you would like to make a submission, please sign in.<br>";
+            echo '<a href="../signin/index.php">click here to go to the sign in page</a>';
         }
 ?>
     <?php echoBootstrapScripts(); ?>
