@@ -73,7 +73,7 @@ if (isset($_POST['register'])) {
             exit;
         }
         else {
-            header("Location:../signin/register.php?status=no");
+            header("Location:../signin/register.php?status=createfailed");
             exit;
         }
     }

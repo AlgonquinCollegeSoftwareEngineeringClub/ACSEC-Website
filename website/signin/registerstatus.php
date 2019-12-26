@@ -7,10 +7,8 @@ function handleRegisterReturnStatus() {
     if (@$_GET['status'] == "weakpassword")
         echoAlertFailure("Password is too short!");
 
-    // TODO: "no" is undescriptive, find where it's being used and choose a better
-    // name.
-    if (@$_GET['status'] == "no")
-        echoAlertFailure("Error! Username or password is wrong...");
+    if (@$_GET['status'] == "createfailed")
+        echoAlertFailure("Could not create account!");
 
     // TODO: "exit" is undescriptive, find where it's being used and choose a
     // better name. Also the message (exit) tied to it doesn't provide any
