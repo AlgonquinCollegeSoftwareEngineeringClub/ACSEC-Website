@@ -23,6 +23,9 @@ function handleRegisterReturnStatus() {
 
     if (@$_GET['status'] == "keyalreadyclaimed")
         echoAlertFailure("The given key has already been claimed!");
+
+    if (@$_GET['status'] == "invalidemail")
+        echoAlertFailure("You must provide a valid email address!");
 }
 
 function echoAlertFailure($message) {

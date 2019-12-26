@@ -41,6 +41,10 @@ if (isset($_POST['register'])) {
         header("Location:../signin/register.php?status=keyalreadyclaimed");
         exit;
     }
+    else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        header("Location:../signin/register.php?status=invalidemail");
+        exit;
+    }
 
     if (strlen($password) >= 1 && strlen($password) <= 60) {
         $pass_ok = True;
