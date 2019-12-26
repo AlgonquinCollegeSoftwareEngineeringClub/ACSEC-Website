@@ -61,19 +61,16 @@
 - (?) If member is viewing their own profile allow them to set or change their avatar.
 - (?) Show avatar if member has set one.
 
-# Account Creation Page
-- Email address field, which will be used as a login name.
+# Register Page
 - First name field.
 - Last name field.
+- Email address field, which will be used as a login name.
 - Password field.
 - Account key field. A single-use key will be provided to members by club administration. This will prevent non-members from creating accounts.
 
-# Log-in Page
-- Member Id
+# Sign In Page
 - Email address field.
 - Password field.
-- First name field.
-- Last name field.
 - Message to contact administration via email if member cannot log-in.
 
 
