@@ -5,11 +5,21 @@ session_start();
 $db = Database::getConnection();
 
 if (isset($_POST['register'])) {
-    $firstName = $_POST['FirstName'];
-    $lastName = $_POST['LastName'];
+    $firstName = trim($_POST['FirstName']);
+    $lastName = trim($_POST['LastName']);
     $email = $_POST['Email'];
     $password = $_POST['Password'];
     $accountKey = $_POST['Key'];
+
+    // Ensure the given names are not blank.
+    if ($firstName == '') {
+        header("Location:../signin/register.php?status=blankname");
+        exit;
+    }
+    else if ($lastName == '') {
+        header("Location:../signin/register.php?status=blanklastname");
+        exit;
+    }
 
     // Check the given key to make sure it exists in the database.
     $keyId = -1;
@@ -52,21 +62,8 @@ if (isset($_POST['register'])) {
 
     if ($pass_ok) {
         $password = password_hash($password, PASSWORD_DEFAULT);
-        $insert=$db->prepare("INSERT INTO Member SET
-            FirstName=:firstName,
-            LastName=:lastName,
-            Email=:email,
-            Password=:password,
-            AccountKeyId=:keyId
-        ");
-
-        $check=$insert->execute(array(
-            'firstName'=>$firstName,
-            'lastName'=>$lastName,
-            'email'=>$email,
-            'password'=>$password,
-            'keyId'=>$keyId
-        ));
+        $insert=$db->prepare("INSERT INTO Member(FirstName, LastName, Email, Password, AccountKeyId) VALUES (?, ?, ?, ?, ?)");
+        $check=$insert->execute([ $firstName, $lastName, $email, $password, $keyId ]);
 
         if ($check) {
             header("Location:../signin/login.php?status=accountcreated");

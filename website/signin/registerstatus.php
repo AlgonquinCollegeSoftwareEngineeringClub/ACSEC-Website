@@ -27,6 +27,12 @@ function handleRegisterReturnStatus() {
 
     if (@$_GET['status'] == "passwordwronglength")
         echoAlertFailure("Password must be between 1 and 60 characters.");
+
+    if (@$_GET['status'] == "blankname")
+        echoAlertFailure("You must provide your first name.");
+
+    if (@$_GET['status'] == "blanklastname")
+        echoAlertFailure("You must provide your last name.");
 }
 
 function echoAlertFailure($message) {
