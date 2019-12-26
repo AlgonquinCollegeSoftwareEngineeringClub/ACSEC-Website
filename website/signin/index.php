@@ -39,7 +39,7 @@ session_start();
     </form>
 
     <div>
-        <p>Don't have an account yet? <a href="../register/index.php">Go to the registration page.</a></p>
+        <p>Don't have an account yet? <a href="../register/">Go to the registration page.</a></p>
     </div>
     <?php echoBootstrapScripts(); ?>
   </body>
