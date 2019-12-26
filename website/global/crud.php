@@ -98,11 +98,11 @@ else if (isset($_POST['login'])) {
             $_SESSION['FirstName'] = $row['FirstName'];
             $_SESSION['LastName'] = $row['LastName'];
 
-            header("Location:../index.php?status=loggedin");
+            header("Location:../?status=loggedin");
             exit;
         }
         else {
-            header("Location:../signin/index.php?status=invalidcredentials");
+            header("Location:../signin/?status=invalidcredentials");
             exit;
         }
     }
