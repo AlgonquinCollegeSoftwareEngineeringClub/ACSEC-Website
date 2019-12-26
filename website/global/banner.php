@@ -32,6 +32,15 @@ function echoBanner($isInParent = false) {
     }
     else {
         echo 'not logged in ';
-        echo '<a href="' . $navPrefix . 'signin/">Sign in</a>';
+        echo '<a href="' . $navPrefix . 'signin/">Sign in</a> ';
+        echo '<a href="' . $navPrefix . 'register/">Register</a>';
     }
+
+    // Create Navigation Bar.
+    echo '<hr>';
+    echo '<a href="' . $navPrefix . './">Front Page</a> '; // Should direct to main page. Note sure how main page should self-direct.
+    echo '<a href="' . $navPrefix . 'challenges/">Challenges</a> ';
+    echo '<a href="' . $navPrefix . 'projects/">Projects</a> ';
+    echo '<a href="' . $navPrefix . 'members/">Members</a>';
+    echo '<hr>';
 }
