@@ -35,6 +35,9 @@
     <p>
       Contact us at: <a href="mailto:contact@acsec.ca">contact@acsec.ca</a>.
     </p>
+    <p>
+      Join the Discord server if you haven't already: <a href="https://discord.gg/pK7vEfs">https://discord.gg/pK7vEfs</a>
+    </p>
     <?php echoBootstrapScripts(); ?>
   </body>
 </html>
