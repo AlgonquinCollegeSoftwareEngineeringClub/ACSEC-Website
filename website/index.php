@@ -1,6 +1,12 @@
-<?php session_start(); ?>
-<?php require 'global/bootstrap.php'; ?>
-<?php require 'global/banner.php'; ?>
+<?php
+
+require_once 'global/bootstrap.php';
+require_once 'global/banner.php';
+require_once 'global/session.php';
+
+startSessionFromCookie();
+
+?>
 
 <!DOCTYPE html>
 <html>

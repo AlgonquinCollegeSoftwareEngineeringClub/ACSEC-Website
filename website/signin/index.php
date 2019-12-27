@@ -1,9 +1,11 @@
 <?php
 
-require '../global/database.php';
-require '../global/bootstrap.php';
-require '../global/banner.php';
-session_start();
+require_once '../global/database.php';
+require_once '../global/bootstrap.php';
+require_once '../global/banner.php';
+require_once '../global/session.php';
+
+startSessionFromCookie();
 
 ?>
 

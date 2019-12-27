@@ -1,6 +1,13 @@
-<?php require 'registerstatus.php'; ?>
-<?php require '../global/bootstrap.php'; ?>
-<?php require '../global/banner.php'; ?>
+<?php
+
+require_once 'registerstatus.php';
+require_once '../global/bootstrap.php';
+require_once '../global/banner.php';
+require_once '../global/session.php';
+
+startSessionFromCookie();
+
+?>
 
 <!doctype html>
 <html lang="en">

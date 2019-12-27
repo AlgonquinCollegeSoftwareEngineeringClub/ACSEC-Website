@@ -1,7 +1,9 @@
 <?php
 
-require('database.php');
-session_start();
+require_once 'database.php';
+require_once 'session.php';
+
+startSessionFromCookie();
 
 $db = Database::getConnection();
 
@@ -93,10 +95,8 @@ else if (isset($_POST['login'])) {
 
         // If result matched $myusername and $mypassword, table row must be 1 row
         if ($count == 1 && password_verify($password, $password_h)) {
-            $_SESSION['MemberId'] = $row['MemberId'];
-            $_SESSION['Email'] = $email;
-            $_SESSION['FirstName'] = $row['FirstName'];
-            $_SESSION['LastName'] = $row['LastName'];
+            initSession($row['MemberId'], $email, $row['FirstName'], $row['LastName']);
+            createCookie($row['MemberId']);
 
             header("Location:../?status=loggedin");
             exit;
