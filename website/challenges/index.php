@@ -62,15 +62,17 @@ startSessionFromCookie();
           echo '  <a href="../challenge/?id=' . $challengeId . '" class="challenge-link">';
 
           if ($hasSubmitted)
-            echo '  <div class="challenge-item submitted">';
+            echo '  <div class="challenge-item submitted row">';
           else
-            echo '  <div class="challenge-item">';
+            echo '  <div class="challenge-item row">';
 
-          echo '      <span class="challenge-number">' . $challengeId . '</span>';
-          echo '      <span class="challenge-title">' . $title . '</span>';
-          echo '      <span class="challenge-difficulty">' . $difficulty . '</span>';
-          echo '      <span class="challenge-submissions">Submissions: ' . $submissionCount . '</span>';
-          echo '      <span class="challenge-date">' . $date . '</span>';
+          echo '      <span class="col">';
+          echo '        <span class="challenge-number">' . $challengeId . '</span>';
+          echo '        <span class="challenge-title">' . $title . '</span>';
+          echo '      </span>';
+          echo '      <span class="col challenge-difficulty">' . $difficulty . '</span>';
+          echo '      <span class="col challenge-submissions">Submissions: ' . $submissionCount . '</span>';
+          echo '      <span class="col challenge-date">' . $date . '</span>';
           echo '    </div>';
           echo '  </a>';
           echo '</li>';

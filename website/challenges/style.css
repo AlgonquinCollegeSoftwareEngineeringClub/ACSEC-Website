@@ -13,9 +13,13 @@
   padding: 5px;
 }
 
-.challenge-item > span {
+.challenge-item span {
   display: inline-block;
   padding: 5px;
+}
+
+.challenge-date {
+  text-align: right;
 }
 
 .challenge-date {
