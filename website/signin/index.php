@@ -36,6 +36,10 @@ startSessionFromCookie();
         <label>Password</label>
         <input type="password" class="form-control" name="password" placeholder="Enter Password">
       </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="rememberme" id="rememberme" value="">
+        <label class="form-check-label" for="rememberme">Keep me signed in.</label>
+      </div>
 
       <input type="submit" class="btn btn-primary" name="login" value="Submit">
     </form>

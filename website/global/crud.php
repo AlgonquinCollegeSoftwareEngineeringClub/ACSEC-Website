@@ -96,7 +96,10 @@ else if (isset($_POST['login'])) {
         // If result matched $myusername and $mypassword, table row must be 1 row
         if ($count == 1 && password_verify($password, $password_h)) {
             initSession($row['MemberId'], $email, $row['FirstName'], $row['LastName']);
-            createCookie($row['MemberId']);
+
+            if (isset($_POST['rememberme'])) {
+                createCookie($row['MemberId']);
+            }
 
             header("Location:../?status=loggedin");
             exit;
