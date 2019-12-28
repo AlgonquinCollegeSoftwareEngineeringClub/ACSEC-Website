@@ -186,7 +186,10 @@ if ($query->rowCount() > 0) {
 
         echo '</div>';
 
-        if (isset($_SESSION['MemberId'])) {
+        if (!isset($_SESSION['MemberId'])) {
+            echo 'If you would like to make a submission, <a data-toggle="modal" data-target="#signin-modal" style="color:blue;cursor:pointer;">please sign in</a>.';
+        }
+        else if ($challengeDate <= $today) {
             echo '<form action="' . $_SERVER['PHP_SELF'] . '?id=' . $challengeId . '" class="container" method="post">';
             echo '  <h3>Post your solution</h3>';
             echo '  <div class="form-group">';
@@ -216,9 +219,7 @@ if ($query->rowCount() > 0) {
             echo '  </div>';
             echo '</form>';
         }
-        else {
-            echo 'If you would like to make a submission, <a data-toggle="modal" data-target="#signin-modal" style="color:blue;cursor:pointer;">please sign in</a>.';
-        }
+        
 ?>
     <?php echoSignInModal(); ?>
     <?php echoBootstrapScripts(); ?>
