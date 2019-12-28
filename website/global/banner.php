@@ -98,14 +98,14 @@ function echoSignInModal($isInParent = false) {
 <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Sign In</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="<?= $navPrefix ?>global/crud.php<?= getSelfString() ?>" method="post">
+      <form action="<?= $navPrefix ?>global/crud.php<?= getSelfString() ?>" method="post">
+        <div class="modal-header">
+          <h5 class="modal-title">Sign In</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
           <div class="form-group">
             <label for="email-input">Email address</label>
             <input type="email" id="email-input" class="form-control" name="email" placeholder="Enter email">
@@ -118,13 +118,12 @@ function echoSignInModal($isInParent = false) {
             <input class="form-check-input" type="checkbox" name="rememberme" id="rememberme" value="">
             <label class="form-check-label" for="rememberme">Keep me signed in.</label>
           </div>
-          <button type="submit" class="btn btn-primary" name="login">Submit</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Sign in</button>
-      </div>
+        </div>
+        <div class="modal-footer justify-content-start">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" name="login">Sign in</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
