@@ -59,6 +59,42 @@ function loginArea($navPrefix) {
 <li class="navbar-item" data-toggle="modal" data-target="#signin-modal">
   <a class="nav-link" style="cursor:pointer;">Sign in</a>
 </li>
+<li class="navbar-item">
+  <a class="nav-link" href="<?= $navPrefix ?>register/">Register</a>
+</li>
+
+<?php
+
+    }
+
+?>
+
+
+
+<?php
+
+}
+
+function getSelfString() {
+    if (isset($_GET['id'])) {
+        $selfString = '?from=' . htmlentities($_SERVER['PHP_SELF']) . "?" . $_SERVER['QUERY_STRING'];
+    }
+    else {
+        $selfString = '?from=' . htmlentities($_SERVER['PHP_SELF']);
+    }
+
+    return $selfString;
+}
+
+function echoSignInModal($isInParent = false) {
+    if (!isset($_SESSION['MemberId'])) {
+        if ($isInParent)
+            $navPrefix = '';
+        else
+            $navPrefix = '../';
+
+?>
+
 <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -92,31 +128,10 @@ function loginArea($navPrefix) {
     </div>
   </div>
 </div>
-<li class="navbar-item">
-  <a class="nav-link" href="<?= $navPrefix ?>register/">Register</a>
-</li>
 
 <?php
 
     }
-
-?>
-
-
-
-<?php
-
-}
-
-function getSelfString() {
-    if (isset($_GET['id'])) {
-        $selfString = '?from=' . htmlentities($_SERVER['PHP_SELF']) . "?" . $_SERVER['QUERY_STRING'];
-    }
-    else {
-        $selfString = '?from=' . htmlentities($_SERVER['PHP_SELF']);
-    }
-
-    return $selfString;
 }
 
 // EOF

@@ -45,6 +45,7 @@ startSessionFromCookie();
     <div>
         <p>Don't have an account yet? <a href="../register/">Go to the registration page.</a></p>
     </div>
+    <?php echoSignInModal(); ?>
     <?php echoBootstrapScripts(); ?>
   </body>
 </html>

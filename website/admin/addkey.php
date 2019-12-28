@@ -40,6 +40,7 @@ if (!isset($_SESSION['MemberId']) || $_SESSION['Email'] !== "jess0076@algonquinl
       </div>
       <input type="submit" class="btn btn-primary" name="addkey" value="Submit">
     </form>
+    <?php echoSignInModal(); ?>
     <?php echoBootstrapScripts(); ?>
   </body>
 </html>

@@ -44,6 +44,7 @@ startSessionFromCookie();
     <p>
       Join the Discord server if you haven't already: <a href="https://discord.gg/pK7vEfs">https://discord.gg/pK7vEfs</a>
     </p>
+    <?php echoSignInModal(true); ?>
     <?php echoBootstrapScripts(); ?>
   </body>
 </html>

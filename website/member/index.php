@@ -20,6 +20,7 @@ startSessionFromCookie();
 
     <!-- TODO: Should show member's name (gathered from GET id) and their submissions. -->
 
+    <?php echoSignInModal(); ?>
     <?php echoBootstrapScripts(); ?>
   </body>
 </html>

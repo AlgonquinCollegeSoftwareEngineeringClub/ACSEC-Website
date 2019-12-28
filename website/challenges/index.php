@@ -76,6 +76,7 @@ startSessionFromCookie();
       }
       ?>
     </ul>
+    <?php echoSignInModal(); ?>
     <?php echoBootstrapScripts(); ?>
   </body>
 </html>

@@ -16,6 +16,7 @@ startSessionFromCookie();
   <body>
     <?php echoBanner("members"); ?>
     <h1>This page is under construction</h1>
+    <?php echoSignInModal(); ?>
     <?php echoBootstrapScripts(); ?>
   </body>
 </html>

@@ -188,6 +188,7 @@ if ($query->rowCount() > 0) {
 
         if (isset($_SESSION['MemberId'])) {
             echo '<form action="' . $_SERVER['PHP_SELF'] . '?id=' . $challengeId . '" class="container" method="post">';
+            echo '  <h3>Post your solution</h3>';
             echo '  <div class="form-group">';
             echo '    <label for="language">Language: </label>';
             echo '    <select class="form-control" name="language">';
@@ -212,10 +213,10 @@ if ($query->rowCount() > 0) {
             echo '</form>';
         }
         else {
-            echo "If you would like to make a submission, please sign in.<br>";
-            echo '<a href="../signin/index.php">click here to go to the sign in page</a>';
+            echo 'If you would like to make a submission, <a data-toggle="modal" data-target="#signin-modal" style="color:blue;cursor:pointer;">please sign in</a>.';
         }
 ?>
+    <?php echoSignInModal(); ?>
     <?php echoBootstrapScripts(); ?>
   </body>
 </html>

@@ -49,6 +49,7 @@ startSessionFromCookie();
         <p>If you're a member of the Software Engineering Club and need a key, message Corvus#4166 on discord.</p>
         <p>Already Have an account? <a href="../signin/">Go to the sign in page.</a></p>
     </div>
+    <?php echoSignInModal(); ?>
     <?php echoBootstrapScripts(); ?>
   </body>
 </html>
