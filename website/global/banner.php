@@ -56,9 +56,42 @@ function loginArea($navPrefix) {
 ?>
 
 <!-- This will appear in the top-right of the NavBar if the user is not logged in. -->
-<li class="navbar-item">
-  <a class="nav-link" href="<?= $navPrefix ?>signin/">Sign in</a>
+<li class="navbar-item" data-toggle="modal" data-target="#signin-modal">
+  <a class="nav-link" style="cursor:pointer;">Sign in</a>
 </li>
+<div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sign In</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= $navPrefix ?>global/crud.php<?= getSelfString() ?>" method="post">
+          <div class="form-group">
+            <label for="email-input">Email address</label>
+            <input type="email" id="email-input" class="form-control" name="email" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="password-input">Password</label>
+            <input type="password" id="password-input" class="form-control" name="password" placeholder="Password">
+          </div>
+          <div class="form-check" style="margin-bottom:10px;">
+            <input class="form-check-input" type="checkbox" name="rememberme" id="rememberme" value="">
+            <label class="form-check-label" for="rememberme">Keep me signed in.</label>
+          </div>
+          <button type="submit" class="btn btn-primary" name="login">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Sign in</button>
+      </div>
+    </div>
+  </div>
+</div>
 <li class="navbar-item">
   <a class="nav-link" href="<?= $navPrefix ?>register/">Register</a>
 </li>
@@ -73,6 +106,17 @@ function loginArea($navPrefix) {
 
 <?php
 
+}
+
+function getSelfString() {
+    if (isset($_GET['id'])) {
+        $selfString = '?from=' . htmlentities($_SERVER['PHP_SELF']) . "?" . $_SERVER['QUERY_STRING'];
+    }
+    else {
+        $selfString = '?from=' . htmlentities($_SERVER['PHP_SELF']);
+    }
+
+    return $selfString;
 }
 
 // EOF

@@ -29,21 +29,19 @@ startSessionFromCookie();
 ?>
     <form class="container" action="../global/crud.php" method="post">
       <div class="form-group">
-        <label>email</label>
-        <input type="text" class="form-control" name="email" placeholder="Enter email">
+        <label for="email-input">Email address</label>
+        <input type="email" id="email-input" class="form-control" name="email" placeholder="Enter email">
       </div>
       <div class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control" name="password" placeholder="Enter Password">
+        <label for="password-input">Password</label>
+        <input type="password" id="password-input" class="form-control" name="password" placeholder="Password">
       </div>
-      <div class="form-check">
+      <div class="form-check" style="margin-bottom:10px;">
         <input class="form-check-input" type="checkbox" name="rememberme" id="rememberme" value="">
         <label class="form-check-label" for="rememberme">Keep me signed in.</label>
       </div>
-
-      <input type="submit" class="btn btn-primary" name="login" value="Submit">
+      <button type="submit" class="btn btn-primary" name="login">Submit</button>
     </form>
-
     <div>
         <p>Don't have an account yet? <a href="../register/">Go to the registration page.</a></p>
     </div>

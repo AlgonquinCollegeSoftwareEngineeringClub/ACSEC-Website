@@ -101,7 +101,13 @@ else if (isset($_POST['login'])) {
                 createCookie($row['MemberId']);
             }
 
-            header("Location:../?status=loggedin");
+            if (isset($_GET['from'])) {
+                header("Location:" . $_GET['from']);
+            }
+            else {
+                header("Location:../");
+            }
+
             exit;
         }
         else {
