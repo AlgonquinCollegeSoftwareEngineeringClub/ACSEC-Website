@@ -177,7 +177,7 @@ if ($query->rowCount() > 0) {
             $fileQuery->execute([$submissionId]);
             foreach ($fileQuery as $fileRow) {
                 if ($fileRow['Filename'] != NULL) {
-                    echo '<h3 class="filename">' . $fileRow['Filename'] . '</h3>';
+                    echo '<p class="filename">' . $fileRow['Filename'] . '</p>';
                 }
                 echo '  <pre class="prettyprint linenums">' . $fileRow['Code'] . '</pre>';
             }
