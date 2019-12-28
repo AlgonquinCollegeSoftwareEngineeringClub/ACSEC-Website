@@ -203,7 +203,7 @@ if ($query->rowCount() > 0) {
             echo '  <div id="file-area">';
             echo '    <div class="form-group">';
             echo '      <input type="text" class="form-control" name="filename1" placeholder="filename">';
-            echo '      <textarea name="code1" class="form-control" rows=4 placeholder="Enter your solution here..."></textarea>';
+            echo '      <textarea name="code1" class="form-control" rows=15 placeholder="Enter your solution here..."></textarea>';
             echo '    </div>';
             echo '  </div>';
             echo '  <button id="add-another-file" class="btn btn-secondary" type="button">Add another file</button>';
