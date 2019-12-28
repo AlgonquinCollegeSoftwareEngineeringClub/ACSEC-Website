@@ -232,6 +232,6 @@ if ($query->rowCount() > 0) {
     }
 }
 else {
-    echo "Challenge not found!";
+    header("Location:../challenges");
 }
 ?>
