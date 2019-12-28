@@ -15,7 +15,7 @@ startSessionFromCookie();
     <title>ACSEC</title>
   </head>
   <body>
-    <?php echoBanner(true); ?>
+    <?php echoBanner("main", true); ?>
     <h1>Welcome</h1>
     <hr>
 <?php

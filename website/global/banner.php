@@ -1,6 +1,6 @@
 <?php
 
-function echoBanner($isInParent = false) {
+function echoBanner($onpage = 'none', $isInParent = false) {
     if ($isInParent)
         $navPrefix = '';
     else
@@ -15,13 +15,13 @@ function echoBanner($isInParent = false) {
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item">
+      <li class="nav-item <?php if ($onpage == "challenges") echo "active"; ?>">
         <a class="nav-link" href="<?= $navPrefix ?>challenges/">Challenges</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item <?php if ($onpage == "projects") echo "active"; ?>">
         <a class="nav-link disabled" href="<?= $navPrefix ?>projects/">Projects</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item <?php if ($onpage == "members") echo "active"; ?>">
         <a class="nav-link disabled" href="<?= $navPrefix ?>members/">Members</a>
       </li>
     </ul>

@@ -14,7 +14,7 @@ startSessionFromCookie();
     <title>Projects</title>
   </head>
   <body>
-    <?php echoBanner(); ?>
+    <?php echoBanner("projects"); ?>
     <h1>This page is under construction</h1>
     <?php echoBootstrapScripts(); ?>
   </body>

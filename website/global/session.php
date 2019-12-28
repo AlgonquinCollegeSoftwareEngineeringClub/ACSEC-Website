@@ -54,7 +54,7 @@ function createToken($memberId) {
     $token = bin2hex(openssl_random_pseudo_bytes(20));
 
     date_default_timezone_set('America/Toronto');
-    $expire = date("Y-m-d", strtotime(date("Y-m-d", mktime()) . " + 365 day"));
+    $expire = date("Y-m-d", strtotime(date("Y-m-d", time()) . " + 365 day"));
 
     $db = Database::getConnection();
 

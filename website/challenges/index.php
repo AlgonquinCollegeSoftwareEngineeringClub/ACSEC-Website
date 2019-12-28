@@ -16,7 +16,7 @@ startSessionFromCookie();
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <?php echoBanner(); ?>
+    <?php echoBanner("challenges"); ?>
     <h1>Challenges</h1>
     <ul id="challenge-list">
       <?php
