@@ -18,7 +18,7 @@ startSessionFromCookie();
   <body>
     <?php echoBanner(); ?>
     <h1>Challenges</h1>
-    <ul>
+    <ul id="challenge-list">
       <?php
       // Get list of challenges.
       $db = Database::getConnection();
