@@ -26,7 +26,7 @@ function startSessionFromCookie() {
                 $query->execute([ $memberId ]);
                 $row = $query->fetch();
 
-                initSession($_COOKIE["acsec"], $row['Email'], $row['FirstName'], $row['LastName']);
+                initSession($memberId, $row['Email'], $row['FirstName'], $row['LastName']);
                 createCookie($memberId);
             }
         }
