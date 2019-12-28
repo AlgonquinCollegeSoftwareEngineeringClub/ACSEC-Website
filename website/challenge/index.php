@@ -190,8 +190,8 @@ if ($query->rowCount() > 0) {
             echo '<form action="' . $_SERVER['PHP_SELF'] . '?id=' . $challengeId . '" class="container" method="post">';
             echo '  <h3>Post your solution</h3>';
             echo '  <div class="form-group">';
-            echo '    <label for="language">Language: </label>';
-            echo '    <select class="form-control" name="language">';
+            echo '    <label for="language">Language</label>';
+            echo '    <select class="form-control" id="language" name="language">';
             echo '      <option value="java">Java</option>';
             echo '      <option value="c">C</option>';
             echo '      <option value="csharp">C#</option>';
@@ -203,8 +203,12 @@ if ($query->rowCount() > 0) {
             echo '  </div>';
             echo '  <div id="file-area">';
             echo '    <div class="form-group">';
-            echo '      <input type="text" class="form-control" name="filename1" placeholder="filename">';
-            echo '      <textarea name="code1" class="form-control" rows=15 placeholder="Enter your solution here..."></textarea>';
+            echo '      <label for="filename1">Filename</label>';
+            echo '      <input type="text" id="filename1" class="form-control" name="filename1" placeholder="Filename">';
+            echo '    </div>';
+            echo '    <div class="form-group">';
+            echo '      <label for="code1">Code</label>';
+            echo '      <textarea name="code1" id="code1" class="form-control" rows=15 placeholder="Enter your solution here..."></textarea>';
             echo '    </div>';
             echo '  </div>';
             echo '  <button id="add-another-file" class="btn btn-secondary" type="button">Add another file</button>';
