@@ -17,8 +17,10 @@ startSessionFromCookie();
   </head>
   <body>
     <?php echoBanner("challenges"); ?>
-    <h1>Challenges</h1>
-    <ul id="challenge-list">
+    <!-- Container fluid in this case just adds a bit of padding so the text is not against the edges.. -->
+    <div class="container-fluid">
+      <h1>Challenges</h1>
+      <ul id="challenge-list">
       <?php
       // Get list of challenges.
       $db = Database::getConnection();
@@ -75,7 +77,8 @@ startSessionFromCookie();
         }
       }
       ?>
-    </ul>
+      </ul>
+    </div>
     <?php echoSignInModal(); ?>
     <?php echoBootstrapScripts(); ?>
   </body>

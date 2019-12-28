@@ -109,8 +109,10 @@ if ($query->rowCount() > 0) {
   </head>
   <body>
     <?php echoBanner(); ?>
-    <h1>Challenge <?php echo $challengeId . ': ' . $challengeTitle; ?></h1>
-    <p>Posted on <?php echo date("M j, Y", strtotime($challengeDate)); ?></p>
+    <!-- Container fluid in this case just adds a bit of padding so the text is not against the edges.. -->
+    <div class="container-fluid">
+      <h1>Challenge <?php echo $challengeId . ': ' . $challengeTitle; ?></h1>
+      <p>Posted on <?php echo date("M j, Y", strtotime($challengeDate)); ?></p>
 
 <?php
         if ($challengeDifficulty === 1) {
@@ -219,8 +221,9 @@ if ($query->rowCount() > 0) {
             echo '  </div>';
             echo '</form>';
         }
-        
+
 ?>
+    </div>
     <?php echoSignInModal(); ?>
     <?php echoBootstrapScripts(); ?>
   </body>

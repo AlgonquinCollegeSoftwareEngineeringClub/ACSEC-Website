@@ -23,8 +23,10 @@ if (!isset($_SESSION['MemberId']) || $_SESSION['Email'] !== "jess0076@algonquinl
   </head>
   <body>
     <?php echoBanner(); ?>
-    <h1>Add Key</h1>
-    <hr>
+    <!-- Container fluid in this case just adds a bit of padding so the text is not against the edges.. -->
+    <div class="container-fluid">
+      <h1>Add Key</h1>
+      <hr>
 <?php
     if (@$_GET['status'] == "added")
         echo '<div class="alert alert-success">The key was added.</div>';
@@ -33,13 +35,14 @@ if (!isset($_SESSION['MemberId']) || $_SESSION['Email'] !== "jess0076@algonquinl
     else if (@$_GET['status'] == "blank")
         echo '<div class="alert alert-danger">You cannot add a blank key.</div>';
 ?>
-    <form class="container" action="../global/crud.php" method="post">
-      <div class="form-group">
-        <label for="key">Key</label>
-        <input type="text" class="form-control" name="key" id="key" value="">
-      </div>
-      <input type="submit" class="btn btn-primary" name="addkey" value="Submit">
-    </form>
+      <form class="container" action="../global/crud.php" method="post">
+        <div class="form-group">
+          <label for="key">Key</label>
+          <input type="text" class="form-control" name="key" id="key" value="">
+        </div>
+        <input type="submit" class="btn btn-primary" name="addkey" value="Submit">
+      </form>
+    </div>
     <?php echoSignInModal(); ?>
     <?php echoBootstrapScripts(); ?>
   </body>
