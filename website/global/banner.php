@@ -118,6 +118,9 @@ function echoSignInModal($isInParent = false) {
             <input class="form-check-input" type="checkbox" name="rememberme" id="rememberme" value="">
             <label class="form-check-label" for="rememberme">Keep me signed in.</label>
           </div>
+          <div>
+              <a href="<?= $navPrefix ?>register/">I don't have an account yet.</a>
+          </div>
         </div>
         <div class="modal-footer justify-content-start">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
