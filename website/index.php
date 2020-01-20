@@ -31,11 +31,9 @@ startSessionFromCookie();
           Our meet-up schedule is as follows:
         </p>
         <ul>
-          <li>No meetups scheduled until school begins again.</li>
-          <!--
-          <li>F109 - Tuesday from 11:30am to 1:00pm.</li>
-          <li>CA202 - Wednesday from 10:00am to 12:00pm.</li>
-          -->
+
+          <li>F109 - Mondays from 12:00pm to 2:00pm.</li>
+
         </ul>
       </div>
       <p><a href="projects/">View our projects.</a></p>
